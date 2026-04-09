@@ -12,34 +12,53 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="/src/css/styles.css">
 </head>
 <body>
 
-    <!-- Top Navigation (Transparent-to-Solid via JS) -->
+    <!-- Top Navigation (Simplified) -->
     <header class="header-glass">
         <nav class="container flex justify-between items-center" style="height: 100%;">
             <div class="nav-logo">
-                <img src="./logo2.png" alt="Logo Rumah Belajar Insan Mandiri">
-                <span class="nav-title">Rumah Belajar Insan Mandiri</span>
+                <img src="/logo2.png" alt="Logo Rumah Belajar Insan Mandiri" style="height: 3.5rem;">
             </div>
             
             <div class="nav-links">
                 <a href="#" class="active">Beranda</a>
-                <a href="#tentang">Tentang Kami</a>
+                <a href="#tentang">Tentang</a>
                 <a href="#program">Program</a>
-                <a href="#donasi">Donasi</a>
-                <a href="#kontak">Hubungi Kami</a>
+                <a href="#galeri">Galeri</a>
+                <a href="#kontak">Kontak</a>
             </div>
             
             <div class="nav-actions">
-                <button class="btn btn-primary" onclick="document.getElementById('donasi').scrollIntoView({behavior:'smooth'})">
+                <button class="btn btn-primary nav-cta" onclick="document.getElementById('donasi').scrollIntoView({behavior:'smooth'})">
                     <span class="material-symbols-outlined" style="font-size: 18px;">favorite</span>
                     Salurkan Kebaikan
                 </button>
             </div>
         </nav>
     </header>
+
+    <!-- ===== MOBILE NAV DRAWER ===== -->
+    <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
+    <nav class="mobile-nav-drawer" id="mobile-nav-drawer">
+        <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Tutup Menu">&times;</button>
+        <div class="mobile-nav-logo">
+            <img src="/logo2.png" alt="Logo RBIM">
+            <span>Rumah Belajar Insan Mandiri</span>
+        </div>
+        <a href="#" class="mobile-nav-link active">Beranda</a>
+        <a href="#tentang" class="mobile-nav-link">Tentang</a>
+        <a href="#program" class="mobile-nav-link">Program</a>
+        <a href="#galeri" class="mobile-nav-link">Galeri</a>
+        <a href="#donasi" class="mobile-nav-link">Donasi</a>
+        <a href="#kontak" class="mobile-nav-link">Hubungi Kami</a>
+        <a href="https://wa.me/6281234567890" target="_blank" class="btn btn-primary" style="margin-top:1.5rem; width:100%; justify-content:center;">
+            <span class="material-symbols-outlined" style="font-size:18px;">chat</span>
+            Chat WhatsApp
+        </a>
+    </nav>
 
     <main>
         <!-- ===== HERO SECTION ===== -->
@@ -79,7 +98,7 @@
                     <!-- Card 1: Yayasan -->
                     <div class="bento-card reveal delay-100" style="border-top: 4px solid var(--tertiary);">
                         <div class="bento-icon" style="background-color: var(--surface-container-low); padding: 0.5rem;">
-                            <img src="./logo1.png" alt="Yayasan" style="width: 3.5rem; height: 3.5rem; object-fit: contain; border-radius: 0;">
+                            <img src="/logo1.png" alt="Yayasan" style="width: 3.5rem; height: 3.5rem; object-fit: contain; border-radius: 0;">
                         </div>
                         <h3 style="margin-bottom: 1rem;">Yayasan Rumah Belajar Insan Mandiri</h3>
                         <p class="text-on-surface-variant" style="margin-bottom: 1.5rem; font-size: 0.95rem;">Wadah pemberdayaan sosial dan penyaluran donasi yang terpercaya. Setiap amanah dikelola secara transparan untuk pendidikan anak bangsa.</p>
@@ -98,7 +117,7 @@
                     <!-- Card 2: Lembaga Pendidikan (logo2) -->
                     <div class="bento-card reveal delay-200" style="border-top: 4px solid var(--primary);">
                         <div class="bento-icon" style="background-color: var(--surface-container-low); padding: 0.5rem;">
-                            <img src="./logo2.png" alt="Lembaga Pendidikan" style="width: 3.5rem; height: 3.5rem; object-fit: contain; border-radius: 0;">
+                            <img src="/logo2.png" alt="Lembaga Pendidikan" style="width: 3.5rem; height: 3.5rem; object-fit: contain; border-radius: 0;">
                         </div>
                         <h3 style="margin-bottom: 1rem;">Lembaga Pendidikan Islam (Diniyah)</h3>
                         <p class="text-on-surface-variant" style="margin-bottom: 1.5rem; font-size: 0.95rem;">Fokus pada kualitas pendidikan adab, akhlak, dan kemandirian. Menyiapkan generasi mukmin yang beradab dan mandiri.</p>
@@ -207,30 +226,22 @@
                     <div class="grid grid-cols-2 gap-8" style="max-width: 64rem; margin: 0 auto;">
                         <div class="program-card reveal delay-100">
                             <div class="program-image-wrapper">
-                                <div class="program-img-placeholder" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);">
-                                    <span class="material-symbols-outlined" style="font-size: 4rem; color: rgba(255,255,255,0.6);">menu_book</span>
-                                    <p style="color: rgba(255,255,255,0.7); font-weight: 600; margin-top: 0.75rem;">Tahsin &amp; Tahfidz</p>
-                                </div>
+                                <img src="/WhatsApp%20Image%202026-04-05%20at%2021.05.31.jpeg" alt="Tahfidz & Dirosah">
                             </div>
                             <div class="program-content">
-                                <div class="program-badge">Setiap Akhir Pekan</div>
-                                <h4 style="margin-bottom: 0.75rem;">Tahsin &amp; Tahfidz Al-Qur'an</h4>
-                                <p class="text-on-surface-variant text-sm" style="margin-bottom: 1.5rem;">Pembinaan bacaan dan hafalan Al-Qur'an sesuai tajwid bersama asatidz berpengalaman setiap akhir pekan.</p>
-                                <button class="btn btn-outline" style="width: 100%; border: 1px solid var(--outline); padding: 0.75rem;">Baca Selengkapnya</button>
+                                <h4 style="margin-bottom: 0.75rem;">Tahfidz &amp; Dirosah</h4>
+                                <p class="text-on-surface-variant text-sm program-desc-truncated" style="margin-bottom: 1rem;">Lebih dari sekadar hafalan, program ini membimbing setiap santri untuk mencintai Al-Qur'an dari hatinya yang paling dalam. Dengan pendekatan yang penuh kelembutan dan konsistensi, kami menjaga semangat hafalan tetap membara — satu ayat demi satu ayat, satu hari demi satu hari.</p>
+                                <button class="btn-baca-selengkapnya" data-modal="modal-tahfidz">Baca Selengkapnya <span class="material-symbols-outlined" style="font-size:16px;vertical-align:middle;">chevron_right</span></button>
                             </div>
                         </div>
                         <div class="program-card reveal delay-200">
                             <div class="program-image-wrapper">
-                                <div class="program-img-placeholder" style="background: linear-gradient(135deg, #0d2137 0%, #163c5a 50%, #1a5276 100%);">
-                                    <span class="material-symbols-outlined" style="font-size: 4rem; color: rgba(255,255,255,0.6);">science</span>
-                                    <p style="color: rgba(255,255,255,0.7); font-weight: 600; margin-top: 0.75rem;">Sains Terapan</p>
-                                </div>
+                                <img src="/WhatsApp%20Image%202026-04-05%20at%2021.05.36%20(1).jpeg" alt="Adab & Karakter">
                             </div>
                             <div class="program-content">
-                                <div class="program-badge">Setiap Pekan</div>
-                                <h4 style="margin-bottom: 0.75rem;">Langkah Mandiri (Sains)</h4>
-                                <p class="text-on-surface-variant text-sm" style="margin-bottom: 1.5rem;">Mengasah wawasan teknologi sebagai bekal syiar dan adaptasi kemandirian zaman bagi anak-anak.</p>
-                                <button class="btn btn-outline" style="width: 100%; border: 1px solid var(--outline); padding: 0.75rem;">Baca Selengkapnya</button>
+                                <h4 style="margin-bottom: 0.75rem;">Adab &amp; Karakter</h4>
+                                <p class="text-on-surface-variant text-sm program-desc-truncated" style="margin-bottom: 1rem;">Adab mendahului ilmu — dan kami percaya, karakter yang mulia adalah warisan terbaik yang bisa diberikan kepada seorang anak. Program ini hadir setiap hari, terjalin dalam setiap senyum, salam, dan interaksi, membentuk pribadi yang santun, jujur, dan penuh empati.</p>
+                                <button class="btn-baca-selengkapnya" data-modal="modal-adab">Baca Selengkapnya <span class="material-symbols-outlined" style="font-size:16px;vertical-align:middle;">chevron_right</span></button>
                             </div>
                         </div>
                     </div>
@@ -238,33 +249,15 @@
 
                 <!-- Bulanan -->
                 <div class="tab-content" id="tab-bulanan" style="display: none;">
-                    <div class="grid grid-cols-2 gap-8" style="max-width: 64rem; margin: 0 auto;">
+                    <div class="grid grid-cols-1 gap-8" style="max-width: 32rem; margin: 0 auto;">
                         <div class="program-card">
                             <div class="program-image-wrapper">
-                                <div class="program-img-placeholder" style="background: linear-gradient(135deg, #1b1b2f 0%, #2d2b55 50%, #3d3580 100%);">
-                                    <span class="material-symbols-outlined" style="font-size: 4rem; color: rgba(255,255,255,0.6);">volunteer_activism</span>
-                                    <p style="color: rgba(255,255,255,0.7); font-weight: 600; margin-top: 0.75rem;">Bakti Sosial</p>
-                                </div>
+                                <img src="/WhatsApp%20Image%202026-04-05%20at%2021.05.35.jpeg" alt="Munaqosyah Rutin">
                             </div>
                             <div class="program-content">
-                                <div class="program-badge">Setiap Bulan</div>
-                                <h4 style="margin-bottom: 0.75rem;">Bakti Sosial Peduli Umat</h4>
-                                <p class="text-on-surface-variant text-sm" style="margin-bottom: 1.5rem;">Kegiatan rutin pembagian sembako dan bantuan pendidikan untuk keluarga prasejahtera.</p>
-                                <button class="btn btn-outline" style="width: 100%; border: 1px solid var(--outline); padding: 0.75rem;">Baca Selengkapnya</button>
-                            </div>
-                        </div>
-                        <div class="program-card">
-                            <div class="program-image-wrapper">
-                                <div class="program-img-placeholder" style="background: linear-gradient(135deg, #1a0a26 0%, #331a4a 50%, #4a2570 100%);">
-                                    <span class="material-symbols-outlined" style="font-size: 4rem; color: rgba(255,255,255,0.6);">family_restroom</span>
-                                    <p style="color: rgba(255,255,255,0.7); font-weight: 600; margin-top: 0.75rem;">Parenting Islami</p>
-                                </div>
-                            </div>
-                            <div class="program-content">
-                                <div class="program-badge">Bulanan</div>
-                                <h4 style="margin-bottom: 0.75rem;">Kajian Parenting Islami</h4>
-                                <p class="text-on-surface-variant text-sm" style="margin-bottom: 1.5rem;">Membekali wali murid dengan ilmu pengasuhan anak secara Islami agar selaras antara sekolah dan rumah.</p>
-                                <button class="btn btn-outline" style="width: 100%; border: 1px solid var(--outline); padding: 0.75rem;">Baca Selengkapnya</button>
+                                <h4 style="margin-bottom: 0.75rem;">Munaqosyah Rutin</h4>
+                                <p class="text-on-surface-variant text-sm program-desc-truncated" style="margin-bottom: 1rem;">Setiap langkah kemajuan layak dirayakan. Munaqosyah bulanan adalah momen di mana setiap santri membuktikan kerja kerasnya — bukan untuk bersaing, melainkan untuk bertumbuh. Orang tua bisa melihat langsung perkembangan putra-putrinya dengan penuh haru dan bangga.</p>
+                                <button class="btn-baca-selengkapnya" data-modal="modal-munaqosyah">Baca Selengkapnya <span class="material-symbols-outlined" style="font-size:16px;vertical-align:middle;">chevron_right</span></button>
                             </div>
                         </div>
                     </div>
@@ -272,33 +265,15 @@
 
                 <!-- Tahunan -->
                 <div class="tab-content" id="tab-tahunan" style="display: none;">
-                    <div class="grid grid-cols-2 gap-8" style="max-width: 64rem; margin: 0 auto;">
+                    <div class="grid grid-cols-1 gap-8" style="max-width: 32rem; margin: 0 auto;">
                         <div class="program-card">
                             <div class="program-image-wrapper">
-                                <div class="program-img-placeholder" style="background: linear-gradient(135deg, #162026 0%, #1a3540 50%, #1e4d5e 100%);">
-                                    <span class="material-symbols-outlined" style="font-size: 4rem; color: rgba(255,255,255,0.6);">mosque</span>
-                                    <p style="color: rgba(255,255,255,0.7); font-weight: 600; margin-top: 0.75rem;">Ramadhan</p>
-                                </div>
+                                <img src="/WhatsApp%20Image%202026-04-05%20at%2021.05.34.jpeg" alt="Rihlah & Outbound">
                             </div>
                             <div class="program-content">
-                                <div class="program-badge">Tahunan</div>
-                                <h4 style="margin-bottom: 0.75rem;">Semarak Ramadhan Berkah</h4>
-                                <p class="text-on-surface-variant text-sm" style="margin-bottom: 1.5rem;">Pesantren kilat, ifthar jama'i, dan i'tikaf bersama untuk memaksimalkan ibadah di bulan rahmat.</p>
-                                <button class="btn btn-outline" style="width: 100%; border: 1px solid var(--outline); padding: 0.75rem;">Baca Selengkapnya</button>
-                            </div>
-                        </div>
-                        <div class="program-card">
-                            <div class="program-image-wrapper">
-                                <div class="program-img-placeholder" style="background: linear-gradient(135deg, #1a2600 0%, #2d4000 50%, #3f5900 100%);">
-                                    <span class="material-symbols-outlined" style="font-size: 4rem; color: rgba(255,255,255,0.6);">school</span>
-                                    <p style="color: rgba(255,255,255,0.7); font-weight: 600; margin-top: 0.75rem;">Wisuda Santri</p>
-                                </div>
-                            </div>
-                            <div class="program-content">
-                                <div class="program-badge">Tahunan</div>
-                                <h4 style="margin-bottom: 0.75rem;">Wisuda &amp; Panggung Adab</h4>
-                                <p class="text-on-surface-variant text-sm" style="margin-bottom: 1.5rem;">Ajang apresiasi tahunan di mana santri menunjukkan hafalan, adab, serta keterampilan.</p>
-                                <button class="btn btn-outline" style="width: 100%; border: 1px solid var(--outline); padding: 0.75rem;">Baca Selengkapnya</button>
+                                <h4 style="margin-bottom: 0.75rem;">Rihlah &amp; Outbound</h4>
+                                <p class="text-on-surface-variant text-sm program-desc-truncated" style="margin-bottom: 1rem;">Belajar tak selalu di dalam kelas. Program rihlah tahunan membawa para santri keluar — menyentuh alam, menghayati ciptaan Allah, dan mempererat ikatan persaudaraan yang tak ternilai. Sebuah kenangan yang akan diingat seumur hidup.</p>
+                                <button class="btn-baca-selengkapnya" data-modal="modal-rihlah">Baca Selengkapnya <span class="material-symbols-outlined" style="font-size:16px;vertical-align:middle;">chevron_right</span></button>
                             </div>
                         </div>
                     </div>
@@ -391,7 +366,123 @@
             </div>
         </section>
 
-        <!-- ===== FAQ SECTION ===== -->
+        <!-- ===== GALERI VIDEO SECTION ===== -->
+        <section id="galeri" class="section-padding gallery-section">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <span class="text-label-md">Galeri Kegiatan</span>
+                    <h2 class="text-gradient">Momen yang Menginspirasi</h2>
+                    <p class="text-body-lg" style="max-width: 42rem; color: var(--on-surface-variant);">Saksikan langsung suasana belajar, semangat para santri, dan berbagai kegiatan bermakna di Rumah Belajar Insan Mandiri.</p>
+                </div>
+
+                <div class="video-carousel-wrapper reveal delay-100">
+                    <div class="video-carousel" id="video-carousel">
+                        <div class="video-card glass-card" data-video-id="wCAIx4fkXF4">
+                            <div class="video-thumb-wrapper">
+                                <img src="https://img.youtube.com/vi/wCAIx4fkXF4/hqdefault.jpg" alt="Video Kegiatan 1" class="video-thumb">
+                                <div class="video-play-btn"><span class="material-symbols-outlined" style="font-size:3rem;color:white;">play_circle</span></div>
+                                <div class="video-glass-overlay"></div>
+                            </div>
+                            <div class="video-card-body">
+                                <h4>Kegiatan Santri Bersama</h4>
+                                <p class="text-on-surface-variant text-sm">Suasana belajar yang hangat dan penuh semangat di RBIM.</p>
+                            </div>
+                        </div>
+                        <div class="video-card glass-card" data-video-id="Sh0rfZwBYPY">
+                            <div class="video-thumb-wrapper">
+                                <img src="https://img.youtube.com/vi/Sh0rfZwBYPY/hqdefault.jpg" alt="Video Kegiatan 2" class="video-thumb">
+                                <div class="video-play-btn"><span class="material-symbols-outlined" style="font-size:3rem;color:white;">play_circle</span></div>
+                                <div class="video-glass-overlay"></div>
+                            </div>
+                            <div class="video-card-body">
+                                <h4>Program Pendidikan Islami</h4>
+                                <p class="text-on-surface-variant text-sm">Membangun generasi rabbani melalui pendidikan berkualitas.</p>
+                            </div>
+                        </div>
+                        <div class="video-card glass-card" data-video-id="lomL0B128ak">
+                            <div class="video-thumb-wrapper">
+                                <img src="https://img.youtube.com/vi/lomL0B128ak/hqdefault.jpg" alt="Video Kegiatan 3" class="video-thumb">
+                                <div class="video-play-btn"><span class="material-symbols-outlined" style="font-size:3rem;color:white;">play_circle</span></div>
+                                <div class="video-glass-overlay"></div>
+                            </div>
+                            <div class="video-card-body">
+                                <h4>Momen Berharga Bersama</h4>
+                                <p class="text-on-surface-variant text-sm">Setiap kegiatan adalah kenangan abadi bagi setiap santri.</p>
+                            </div>
+                        </div>
+                        <div class="video-card glass-card" data-video-id="bt763xXStTo">
+                            <div class="video-thumb-wrapper">
+                                <img src="https://img.youtube.com/vi/bt763xXStTo/hqdefault.jpg" alt="Mentoring Al-Qur'an" class="video-thumb">
+                                <div class="video-play-btn"><span class="material-symbols-outlined" style="font-size:3rem;color:white;">play_circle</span></div>
+                                <div class="video-glass-overlay"></div>
+                            </div>
+                            <div class="video-card-body">
+                                <h4>Mentoring Al-Qur'an Rutin</h4>
+                                <p class="text-on-surface-variant text-sm">Pembiasaan tilawah bersama asatidz untuk memperindah bacaan dan hafalan.</p>
+                            </div>
+                        </div>
+                        <div class="video-card glass-card" data-video-id="dtDB3LC0_FI">
+                            <div class="video-thumb-wrapper">
+                                <img src="https://img.youtube.com/vi/dtDB3LC0_FI/hqdefault.jpg" alt="Pengembangan Karakter" class="video-thumb">
+                                <div class="video-play-btn"><span class="material-symbols-outlined" style="font-size:3rem;color:white;">play_circle</span></div>
+                                <div class="video-glass-overlay"></div>
+                            </div>
+                            <div class="video-card-body">
+                                <h4>Pengembangan Karakter Adab</h4>
+                                <p class="text-on-surface-variant text-sm">Penerapan akhlak islami dalam kehidupan sehari-hari santri dengan metode interaktif.</p>
+                            </div>
+                        </div>
+                        <div class="video-card glass-card" data-video-id="KT1YPEBW7PU">
+                            <div class="video-thumb-wrapper">
+                                <img src="https://img.youtube.com/vi/KT1YPEBW7PU/hqdefault.jpg" alt="Ekstrakurikuler Memanah" class="video-thumb">
+                                <div class="video-play-btn"><span class="material-symbols-outlined" style="font-size:3rem;color:white;">play_circle</span></div>
+                                <div class="video-glass-overlay"></div>
+                            </div>
+                            <div class="video-card-body">
+                                <h4>Ekstrakurikuler Sunnah</h4>
+                                <p class="text-on-surface-variant text-sm">Aktivitas memanah dan latihan ketangkasan untuk melatih fokus para santri.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-nav">
+                        <button class="carousel-btn" id="carousel-prev" aria-label="Sebelumnya"><span class="material-symbols-outlined">arrow_back</span></button>
+                        <div class="carousel-dots" id="carousel-dots"></div>
+                        <button class="carousel-btn" id="carousel-next" aria-label="Berikutnya"><span class="material-symbols-outlined">arrow_forward</span></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== VIDEO MODAL ===== -->
+        <div class="video-modal-backdrop" id="video-modal-backdrop">
+            <div class="video-modal-box">
+                <button class="video-modal-close" id="video-modal-close" aria-label="Tutup">&times;</button>
+                <div class="video-iframe-wrapper">
+                    <iframe id="video-modal-iframe" src="" frameborder="0" allowfullscreen allow="autoplay; encrypted-media"></iframe>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== TITIP DOA SECTION ===== -->
+        <section id="titip-doa" class="section-padding titip-doa-section">
+            <div class="container">
+                <div class="titip-doa-inner reveal">
+                    <div class="titip-doa-icon">
+                        <span class="material-symbols-outlined" style="font-size: 3.5rem; color: var(--tertiary);">mosque</span>
+                    </div>
+                    <span class="text-label-md" style="color: var(--tertiary);">Ruang Keheningan &amp; Harapan</span>
+                    <h2 class="titip-doa-headline">Titipkan Doa,<br>Ketuk Pintu Langit.</h2>
+                    <p class="titip-doa-sub">Setiap doa yang tulus adalah cahaya yang menerangi perjalanan. Kami dengan sepenuh hati akan mendoakan bersama para santri dan asatidz di Rumah Belajar Insan Mandiri.</p>
+                    <div class="titip-doa-separator"></div>
+                    <p class="titip-doa-instructions">Tuliskan hajat dan doa Anda. Admin kami akan menyampaikannya dalam majelis doa bersama para santri.</p>
+                    <a href="https://wa.me/6281234567890?text=Assalamu'alaikum%20Admin%20RBIM%2C%20saya%20ingin%20menitipkan%20doa%20untuk..." target="_blank" class="btn-titip-doa-cta">
+                        <span class="material-symbols-outlined" style="font-size: 1.5rem;">chat</span>
+                        Kirim Doa via WhatsApp
+                    </a>
+                    <p class="titip-doa-note">Doa Anda akan dibacakan dalam majelis rutin bersama para asatidz &amp; santri.</p>
+                </div>
+            </div>
+        </section>
         <section class="section-padding faq-section">
             <div class="container">
                 <!-- Section Heading - CENTERED -->
@@ -491,6 +582,8 @@
                 </div>
             </div>
         </section>
+
+
     </main>
 
     <!-- ===== FOOTER ===== -->
@@ -499,7 +592,7 @@
             <div class="grid grid-cols-4 gap-12" style="margin-bottom: 4rem;">
                 <div style="grid-column: span 2;">
                     <div class="nav-logo" style="margin-bottom: 1.5rem;">
-                        <img src="./logo2.png" alt="Logo Rumah Belajar Insan Mandiri">
+                        <img src="/logo2.png" alt="Logo Rumah Belajar Insan Mandiri">
                         <span class="nav-title" style="color: var(--on-background);">Rumah Belajar Insan Mandiri</span>
                     </div>
                     <p class="text-on-surface-variant" style="max-width: 25rem; line-height: 1.8;">
@@ -512,8 +605,9 @@
                     <ul class="footer-links">
                         <li><a href="#tentang">Tentang Lembaga</a></li>
                         <li><a href="#program">Program Pendidikan</a></li>
-                        <li><a href="#donasi">Portofolio Penyaluran</a></li>
-                        <li><a href="#">Rekrutmen Relawan</a></li>
+                        <li><a href="#galeri">Galeri Video</a></li>
+                        <li><a href="#titip-doa">Titip Doa</a></li>
+                        <li><a href="#donasi">Salurkan Donasi</a></li>
                     </ul>
                 </div>
                 
@@ -521,7 +615,7 @@
                     <h4>Hubungi Kami</h4>
                     <ul class="footer-links">
                         <li><a href="#">Pusat Bantuan FAQ</a></li>
-                        <li><a href="#">Kontak WhatsApp</a></li>
+                        <li><a href="https://wa.me/6281234567890" target="_blank">Kontak WhatsApp</a></li>
                         <li><a href="#">Informasi Rekening</a></li>
                     </ul>
                 </div>
@@ -529,7 +623,7 @@
             
             <div class="flex justify-between items-center" style="border-top: 1px solid var(--surface-container); padding-top: 2rem; flex-wrap: wrap; gap: 1.5rem;">
                 <p class="text-on-surface-variant" style="font-size: 0.875rem;">
-                    © 2026 Rumah Belajar Insan Mandiri. Seluruh Hak Cipta Dilindungi.
+                    &copy; 2026 Rumah Belajar Insan Mandiri. Seluruh Hak Cipta Dilindungi.
                 </p>
                 
                 <div class="flex gap-4">
@@ -541,6 +635,70 @@
         </div>
     </footer>
 
-    <script src="./js/script.js"></script>
+    <!-- ===== FLOATING ACTION BUTTON ===== -->
+    <a href="https://wa.me/6281234567890" target="_blank" class="fab" id="fab-wa" aria-label="Chat WhatsApp Admin">
+        <img src="/logo2.png" alt="RBIM" class="fab-img">
+        <span class="fab-tooltip">Chat WhatsApp Admin</span>
+    </a>
+
+    <!-- ===== PROGRAM DETAIL MODALS ===== -->
+    <!-- Modal Tahfidz -->
+    <div class="program-modal-backdrop" data-modal-id="modal-tahfidz">
+        <div class="program-modal-box">
+            <button class="program-modal-close" aria-label="Tutup">&times;</button>
+            <img src="/WhatsApp%20Image%202026-04-05%20at%2021.05.31.jpeg" alt="Tahfidz & Dirosah" class="program-modal-img">
+            <div class="program-modal-body">
+                <span class="text-label-md">Program Mingguan</span>
+                <h3 style="margin: 0.75rem 0 1rem;">Tahfidz &amp; Dirosah</h3>
+                <p style="color: var(--on-surface-variant); line-height: 1.9; margin-bottom: 1rem;">Lebih dari sekadar hafalan, program ini membimbing setiap santri untuk mencintai Al-Qur'an dari hatinya yang paling dalam. Dengan pendekatan yang penuh kelembutan dan konsistensi, kami menjaga semangat hafalan tetap membara — satu ayat demi satu ayat, satu hari demi satu hari.</p>
+                <p style="color: var(--on-surface-variant); line-height: 1.9; margin-bottom: 1rem;">Selain menghafal, santri juga belajar tajwid, tafsir dasar, dan dirosah islamiyah agar pemahaman mereka terhadap agama tidak hanya literal, tetapi juga mengakar dalam qalbu.</p>
+                <p style="color: var(--on-surface-variant); line-height: 1.9;"><strong>Jadwal:</strong> Setiap Senin – Jumat setelah Ashar. Tersedia kelas untuk semua tingkatan — dari pemula hingga lanjutan.</p>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Adab -->
+    <div class="program-modal-backdrop" data-modal-id="modal-adab">
+        <div class="program-modal-box">
+            <button class="program-modal-close" aria-label="Tutup">&times;</button>
+            <img src="/WhatsApp%20Image%202026-04-05%20at%2021.05.36%20(1).jpeg" alt="Adab & Karakter" class="program-modal-img">
+            <div class="program-modal-body">
+                <span class="text-label-md">Program Mingguan</span>
+                <h3 style="margin: 0.75rem 0 1rem;">Adab &amp; Karakter</h3>
+                <p style="color: var(--on-surface-variant); line-height: 1.9; margin-bottom: 1rem;">Adab mendahului ilmu — dan kami percaya, karakter yang mulia adalah warisan terbaik yang bisa diberikan kepada seorang anak. Program ini hadir setiap hari, terjalin dalam setiap senyum, salam, dan interaksi.</p>
+                <p style="color: var(--on-surface-variant); line-height: 1.9; margin-bottom: 1rem;">Melalui pembiasaan adab terhadap sesama, orang tua, guru, dan lingkungan, setiap santri ditempa untuk menjadi pribadi yang santun, jujur, dan penuh empati sejak usia dini.</p>
+                <p style="color: var(--on-surface-variant); line-height: 1.9;"><strong>Metode:</strong> Pembiasaan harian, cerita teladan, dan refleksi bersama yang dipandu oleh asatidz berpengalaman.</p>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Munaqosyah -->
+    <div class="program-modal-backdrop" data-modal-id="modal-munaqosyah">
+        <div class="program-modal-box">
+            <button class="program-modal-close" aria-label="Tutup">&times;</button>
+            <img src="/WhatsApp%20Image%202026-04-05%20at%2021.05.35.jpeg" alt="Munaqosyah Rutin" class="program-modal-img">
+            <div class="program-modal-body">
+                <span class="text-label-md">Program Bulanan</span>
+                <h3 style="margin: 0.75rem 0 1rem;">Munaqosyah Rutin</h3>
+                <p style="color: var(--on-surface-variant); line-height: 1.9; margin-bottom: 1rem;">Setiap langkah kemajuan layak dirayakan. Munaqosyah bulanan adalah momen di mana setiap santri membuktikan kerja kerasnya — bukan untuk bersaing, melainkan untuk bertumbuh.</p>
+                <p style="color: var(--on-surface-variant); line-height: 1.9; margin-bottom: 1rem;">Orang tua diundang untuk hadir, menyaksikan langsung perkembangan putra-putrinya, dan merasakan keberkahan dari setiap ilmu yang diserap.</p>
+                <p style="color: var(--on-surface-variant); line-height: 1.9;"><strong>Waktu:</strong> Akhir bulan (minggu ke-4). Hasil evaluasi disampaikan langsung kepada wali murid secara terbuka dan amanah.</p>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Rihlah -->
+    <div class="program-modal-backdrop" data-modal-id="modal-rihlah">
+        <div class="program-modal-box">
+            <button class="program-modal-close" aria-label="Tutup">&times;</button>
+            <img src="/WhatsApp%20Image%202026-04-05%20at%2021.05.34.jpeg" alt="Rihlah & Outbound" class="program-modal-img">
+            <div class="program-modal-body">
+                <span class="text-label-md">Program Tahunan</span>
+                <h3 style="margin: 0.75rem 0 1rem;">Rihlah &amp; Outbound</h3>
+                <p style="color: var(--on-surface-variant); line-height: 1.9; margin-bottom: 1rem;">Belajar tak selalu di dalam kelas. Program rihlah tahunan membawa para santri keluar — menyentuh alam, menghayati ciptaan Allah, dan mempererat ikatan persaudaraan yang tak ternilai.</p>
+                <p style="color: var(--on-surface-variant); line-height: 1.9; margin-bottom: 1rem;">Melalui aktivitas outbound, renungan alam, dan tadabbur bersama, setiap santri diajak untuk mensyukuri nikmat Allah dan memperkuat keimanan di alam terbuka.</p>
+                <p style="color: var(--on-surface-variant); line-height: 1.9;"><strong>Frekuensi:</strong> Satu kali per tahun. Sebuah kenangan yang akan diingat seumur hidup oleh setiap santri dan keluarga.</p>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="/src/js/script.js"></script>
 </body>
 </html>

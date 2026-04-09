@@ -1,64 +1,37 @@
-# Role: Senior Lead Fullstack Engineer & UX/UI Specialist
-# Project: Final Polish "Rumah Belajar Insan Mandiri" Landing Page
+# Role: Senior Frontend Developer (Expert in React, Tailwind, & Framer Motion)
+# Project: Feature Expansion for "Rumah Belajar Insan Mandiri"
 
-## 1. Global Vision & Islamic Context
-Tujuan akhir adalah menciptakan landing page yang kredibel, interaktif, dan kental dengan nilai-nilai adab Islami. Minimalkan teks dummy, perbanyak dummy data Islami yang kredibel. Pastikan penggunaan aset visual sangat spesifik.
+## 1. New Page: Galeri Video Interaktif
+- **Goal:** Menampilkan video kegiatan yayasan dari YouTube dengan tampilan premium.
+- **Videos:** 1. https://youtu.be/bt763xXStTo
+  2. https://youtu.be/dtDB3LC0_FI
+  3. https://youtu.be/KT1YPEBW7PU
+- **Requirement:** - Gunakan Slider/Carousel yang bisa digeser (swipeable).
+  - Saat video diklik, tampilkan di Modal atau langsung putar di tempat dengan transisi yang smooth.
+  - Tambahkan efek "Glassmorphism" pada container video.
+  - Gunakan Framer Motion untuk animasi transisi antar video.
 
----
+## 2. New Page: Titip Doa (Prayer Request)
+- **Goal:** Wadah bagi donatur atau pengunjung untuk menitipkan doa.
+- **Requirement:**
+  - Buat desain halaman yang sangat tenang (Zen style). Gunakan background warna beige lembut atau putih tulang.
+  - Headline: "Titipkan Doa, Ketuk Pintu Langit."
+  - Gunakan tombol CTA besar yang elegan: "Kirim Doa via WhatsApp".
+  - Link Action: Arahkan langsung ke WhatsApp Admin dengan template teks otomatis: "Assalamu'alaikum Admin RBIM, saya ingin menitipkan doa untuk..."
 
-## 2. Technical Revisions (8 Critical Points)
+## 3. Feature: Floating Action Button (FAB)
+- **Asset:** Gunakan Logo Rumah Belajar Insan Mandiri (logo-rbim.png).
+- **Behavior:** - Posisi: Fixed di pojok kanan bawah (Bottom-Right).
+  - Animation: Berikan efek 'Floating' (naik turun pelan) dan 'Pulse' lembut.
+  - Action: Jika diklik, buka chat WhatsApp ke nomor Admin.
 
-### Poin 1: Penempatan Tombol di Hero Section (image_3.png)
-- **Problem:** Tombol donasi dan "Pelajari Program" di bawah teks hero terlihat tidak simetris atau terlalu dekat.
-- **Perbaikan:** Susun kedua tombol secara horizontal (flex-row), beri jarak (gap-x-6) yang rapi, dan pastikan terpusat (items-center) di bawah teks hero. Gunakan animasi `stagger children` dari Framer Motion agar tombol muncul berurutan dengan jeda 0.2s.
+## 4. Program Page Refinement (UX Upgrade)
+- **Copywriting:** Perbaiki semua deskripsi program. Jangan terlalu kaku. Gunakan bahasa yang menyentuh sisi emosional dan pendidikan.
+- **Feature "Baca Selengkapnya":** - Pada setiap card program, tampilkan hanya 2-3 baris deskripsi (truncated).
+  - Tambahkan tombol "Baca Selengkapnya".
+  - Saat diklik, gunakan Framer Motion 'Layout Transition' untuk memperluas card (expand) atau memunculkan Modal yang berisi detail lengkap program tersebut tanpa pindah halaman.
 
-### Poin 2: Perubahan Stat Section 
-- **Problem:** Tampilan angka statistik kaku dan kurang interaktif.
-- **Perbaikan:**
-    - Hapus background grid kaku. Berikan layout yang lebih lapang dengan tonal layering.
-    - **CRITICAL:** Implementasikan Count-Up animation saat section masuk viewport (scroll trigger). Gunakan library `react-countup` atau logic JavaScript sendiri untuk membuat angka menghitung naik dengan delay berurutan (Delay 0.2s antar angka).
-    - Beri ikon minimalist kecil Islami di atas setiap angka (contoh: ikon siluet orang untuk Siswa Terbantu, ikon kalender untuk Program Aktif).
-
-### Poin 3: Card 'Tentang Kami' dengan Aset Spesifik 
-- **Problem:** Struktur card tidak sesuai instruksi dan teks kaku.
-- **Perbaikan:**
-    - Cukup 2 card saja, diletakkan berdampingan (col-span-1).
-    - **Card 1 (Yayasan):** Gunakan ikon minimalist yang terinspirasi dari **logo1.png** (geometric green/gold flower), nama card "Yayasan Rumah Belajar Insan Mandiri" (Dummy text).
-    - **Card 2 (Lembaga Pendidikan):** Gunakan ikon minimalist yang terinspirasi dari **logo2.png** (magenta/blue soaring figures), nama card "Lembaga Pendidikan Islam (Diniyah)" (Dummy text).
-    - Di atas kedua card ini, tambahkan heading teks "Visi & Misi Kami" (Dummy text minimalis).
-
-### Poin 4: Program Page Interactive Tabs 
-- **Problem:** Halaman program terlalu statis.
-- **Perbaikan:**
-    - Implementasikan system tabs dengan 3 tombol besar: "Program Mingguan", "Program Bulanan", "Program Tahunan".
-    - Gunakan state React untuk tab aktif. Beri gaya khusus untuk tab aktif (contoh: magenta gradient underline & bold text).
-    - Saat tab aktif diklik, tampilkan daftar card (minimal 2) untuk kategori tersebut.
-    - **Card Structure:** Foto (Islami), Headline, Subheadline (Teks truncated/terbatas), tombol "Baca Selengkapnya".
-    - **Logic:** Tombol tab yang tidak aktif tidak menampilkan data (hanya teks dummy terbatas). Tab *aktif* diklik akan menampilkan data card lengkap untuk kategori tersebut. Card di tab aktif *tetap* memiliki tombol "Baca Selengkapnya" (Dummy).
-
-### Poin 5: Comment Section Avatars & Teks Islami 
-- **Problem:** Avatar testimoni kaku dan tidak Islami.
-- **Perbaikan:**
-    - Ganti foto avatar dummy dengan foto orang yang berbusana Islami (berhijab, beradab, berpeci/koko), dengan ekspresi yang tulus dan kredibel.
-    - Ganti nama dan teks testimoni dengan data Islami yang kredibel (dummy text). Contoh: "Ust. [Nama]" untuk relawan, "Bapak/Ibu [Nama]" untuk wali murid. Testimoni tentang perkembangan adab anak.
-
-### Poin 6: Perbaikan Section FAQ 
-- **Problem:** Section pertanyaan eror atau tidak berfungsi.
-- **Perbaikan:**
-    - Ubah layout dari halaman terpisah menjadi section FAQ dalam bentuk Accordion minimalis yang clean di halaman utama.
-    - Fix logic JavaScript untuk accordion agar lancar (open/close satu per satu dengan ikon rotasi smooth). State management React.
-
-### Poin 7: Peningkatan Donation Page 
-- **Problem:** Donation page kurang interaktif.
-- **Perbaikan:**
-    - Ubah layout dari section besar kaku menjadi area ajakan donasi yang lebih dinamis.
-    - **CRITICAL:** Ciptasikan area (contoh: Area CTA "Mulai Berdonasi") di mana saat area tersebut *diklik*, *langsung* menampilkan 2 tombol besar berdampingan: "Donasi via Bank" dan "Donasi via WhatsApp". Ajakan awal disembunyikan.
-
-### Poin 8: Scrolling Tagline Sinergi 
-- **Problem:** Section mitra Google/IBM kurang menarik.
-- **Perbaikan:**
-    - Hapus semua logo Google, IBM, Microsoft, EduFoundation.
-    - Ganti total dengan satu baris teks tagline "Rumah Belajar Insan Mandiri" yang berjalan (scrolling marquee effect) horizontal secara terus menerus.
-    - Beri gaya teks tersebut dengan gradient warna logo RBIM, buat agak transparan (opacity-70), dan buat sebagus mungkin (font elegant serif). Gunakan `text-gradient bg-clip-text text-transparent opacity-70`.
-
----
+## 5. Technical Stack Consistency
+- Tetap gunakan Tailwind CSS untuk styling.
+- Pastikan semua elemen baru mengikuti "The Kinetic Academy" design system (No-Line Rule, Tonal Depth, dan Serif Typography untuk Heading).
+- Gunakan Claude 3.5 Sonnet capabilities untuk menulis kode yang clean, modular, dan berperforma tinggi.
