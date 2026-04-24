@@ -30,19 +30,34 @@ document.addEventListener("DOMContentLoaded", () => {
     // 2. Hero Component Auto-Slider Vanilla Logic
     const slidesData = [
         {
-            img: "./WhatsApp%20Image%202026-04-05%20at%2021.05.30.jpeg",
+            img: "/WhatsApp%20Image%202026-04-05%20at%2021.05.30.jpeg",
             headline: "Mencetak Generasi Rabbani yang Mandiri & Beradab.",
-            subheadline: "Ruang tumbuh kembang terbaik dengan fondasi nilai Islami yang kuat."
+            subheadline: "Kami percaya pendidikan bukan sekadar transfer ilmu, melainkan proses menanamkan adab dan kemandirian sebagai fondasi masa depan.",
+            cta: { label: "Mulai Menjelajah", href: "#tentang", icon: "explore" }
         },
         {
-            img: "./WhatsApp%20Image%202026-04-05%20at%2021.05.37.jpeg",
+            img: "/WhatsApp%20Image%202026-04-05%20at%2021.05.37.jpeg",
             headline: "Lingkungan Belajar yang Hangat & Kondusif.",
-            subheadline: "Tempat di mana setiap santri merasa didengar, dihargai, dan dibimbing sepenuhnya."
+            subheadline: "Ruang tumbuh kembang yang dirancang khusus agar setiap anak merasa aman untuk bereksplorasi dan menemukan potensi terbaik mereka.",
+            cta: { label: "Lihat Kegiatan Kami", href: "#galeri", icon: "play_circle" }
         }
     ];
 
     const sliderContainer = document.getElementById('hero-slider');
-    
+    const heroCTAWrapper = document.querySelector('.hero-cta-wrapper');
+
+    function updateHeroCTA(slide) {
+        if (!heroCTAWrapper) return;
+        heroCTAWrapper.innerHTML = `
+            <a href="${slide.cta.href}" class="btn btn-primary fade-stagger-1" style="padding:1.25rem 2.5rem;font-size:1.125rem;">
+                <span class="material-symbols-outlined" style="font-size:20px;">${slide.cta.icon}</span>
+                ${slide.cta.label}
+            </a>
+            <a href="#donasi" class="btn btn-hero-outline fade-stagger-2" style="padding:1.25rem 2.5rem;font-size:1.125rem;">
+                Salurkan Kebaikan
+            </a>`;
+    }
+
     if (sliderContainer) {
         slidesData.forEach((slide, idx) => {
             const slideHtml = `
@@ -57,6 +72,9 @@ document.addEventListener("DOMContentLoaded", () => {
             sliderContainer.insertAdjacentHTML('beforeend', slideHtml);
         });
 
+        // Set initial CTA
+        updateHeroCTA(slidesData[0]);
+
         const slideElements = sliderContainer.querySelectorAll('.slide-item');
         let currentHeroIndex = 0;
 
@@ -64,6 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
             slideElements[currentHeroIndex].classList.remove('active');
             currentHeroIndex = (currentHeroIndex + 1) % slideElements.length;
             slideElements[currentHeroIndex].classList.add('active');
+            updateHeroCTA(slidesData[currentHeroIndex]);
         }, 5000);
     }
 
@@ -431,41 +450,55 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     })();
 
-    // 12. Program Detail Modals — Baca Selengkapnya
-    (function initProgramModals() {
-        const backdrops = document.querySelectorAll('.program-modal-backdrop');
+    // 12. Program Cards — Smooth Inline Expand ("Baca Selengkapnya")
+    (function initProgramExpand() {
+        document.querySelectorAll('.btn-baca-selengkapnya').forEach(btn => {
+            const card = btn.closest('.program-card');
+            if (!card) return;
 
-        function openModal(modalId) {
-            const modal = document.querySelector(`.program-modal-backdrop[data-modal-id="${modalId}"]`);
-            if (!modal) return;
-            modal.classList.add('open');
-            document.body.style.overflow = 'hidden';
-        }
-        function closeModal(modal) {
-            modal.classList.remove('open');
-            document.body.style.overflow = '';
-        }
+            const descEl = card.querySelector('.program-desc-truncated');
+            const fullEl = card.querySelector('.program-desc-full');
+            if (!descEl) return;
 
-        // Open via "Baca Selengkapnya" buttons
-        document.querySelectorAll('.btn-baca-selengkapnya[data-modal]').forEach(btn => {
-            btn.addEventListener('click', () => openModal(btn.dataset.modal));
-        });
+            let expanded = false;
 
-        // Close via X button or backdrop click
-        backdrops.forEach(modal => {
-            const closeBtn = modal.querySelector('.program-modal-close');
-            if (closeBtn) closeBtn.addEventListener('click', () => closeModal(modal));
-            modal.addEventListener('click', e => {
-                if (e.target === modal) closeModal(modal);
+            btn.addEventListener('click', () => {
+                expanded = !expanded;
+
+                if (expanded) {
+                    // Collapse truncated, expand full
+                    descEl.style.maxHeight = '0';
+                    descEl.style.opacity = '0';
+                    descEl.style.marginBottom = '0';
+
+                    if (fullEl) {
+                        // Measure height then animate
+                        fullEl.style.display = 'block';
+                        const h = fullEl.scrollHeight;
+                        fullEl.style.maxHeight = '0';
+                        fullEl.style.opacity = '0';
+                        // Force reflow
+                        void fullEl.offsetHeight;
+                        fullEl.style.maxHeight = h + 'px';
+                        fullEl.style.opacity = '1';
+                    }
+
+                    btn.innerHTML = 'Tutup <span class="material-symbols-outlined" style="font-size:16px;vertical-align:middle;">expand_less</span>';
+                } else {
+                    // Restore truncated, collapse full
+                    descEl.style.maxHeight = '';
+                    descEl.style.opacity = '1';
+                    descEl.style.marginBottom = '';
+
+                    if (fullEl) {
+                        fullEl.style.maxHeight = '0';
+                        fullEl.style.opacity = '0';
+                        setTimeout(() => { fullEl.style.display = 'none'; }, 450);
+                    }
+
+                    btn.innerHTML = 'Baca Selengkapnya <span class="material-symbols-outlined" style="font-size:16px;vertical-align:middle;">chevron_right</span>';
+                }
             });
-        });
-
-        document.addEventListener('keydown', e => {
-            if (e.key === 'Escape') {
-                backdrops.forEach(modal => {
-                    if (modal.classList.contains('open')) closeModal(modal);
-                });
-            }
         });
     })();
 
