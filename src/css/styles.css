@@ -1026,6 +1026,7 @@ footer .copyright { color: rgba(255,255,255,0.35); }
   height: 1px;
   background: linear-gradient(to right, transparent, var(--surface-container), transparent);
 }
+<<<<<<< HEAD
 
 /* ============================================================
    QRIS MODAL
@@ -1058,3 +1059,5 @@ footer .copyright { color: rgba(255,255,255,0.35); }
 .qris-step { display: none; }
 .qris-step.active { display: block; animation: qris-step-in 0.3s ease; }
 @keyframes qris-step-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+=======
+>>>>>>> 3fe69579d6c5f4aa181befd0baeae53b6f7cbb01

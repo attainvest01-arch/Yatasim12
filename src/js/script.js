@@ -502,6 +502,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     })();
 
+<<<<<<< HEAD
     // 13. QRIS Donation Flow
     (function initQrisFlow() {
         const btnDonasiQris = document.getElementById('btn-donasi-qris');
@@ -587,4 +588,6 @@ document.addEventListener("DOMContentLoaded", () => {
         btnSelesai.addEventListener('click', closeQrisModal);
     })();
 
+=======
+>>>>>>> 3fe69579d6c5f4aa181befd0baeae53b6f7cbb01
 });
